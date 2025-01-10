@@ -7,6 +7,12 @@ from datetime import datetime
 #the print function
 def yap(message):
     print(message)
+
+#addition
+def meth(val1, val2):
+    val1
+    val2
+    yap(int(val1)+int(val2))
 #create a variable
 def memorize(variable , value):
     variable
@@ -81,7 +87,20 @@ while True:
         except:
             print("schizofrenia ass, this variable dont exist!")
             error = True
-
+    #addition
+    if token.startswith("meth("):
+        try:
+            x = token.replace("meth(", "", 1)
+            x = x.replace("meth(", "", 1)
+            temp = x
+            x = x.replace(", ", "", 1)
+            original = temp
+            index = original.find(", ") + 2
+            value1 = original[:index]
+            value2 = original[:index - 2]
+            meth(value1, value2)
+        except:
+            error = True
     # Variable assignment (Only 1 variable at a time)
     if token.startswith("memorize("):
         try:
@@ -99,6 +118,7 @@ while True:
             error = False
         except:
             error = True
+    
     if token.startswith('rand('):
         try:
 
